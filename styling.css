@@ -2,48 +2,69 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
-    background-color: #f5ede6; /* Matches the beige background */
-    padding: 20px;
+    padding: 0; 
+    background-color: #f0e5d8; 
 }
 
 section {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 65px 0; 
+}
+
+/* Wrapper Styling for Content */
+.content-wrapper {
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 40px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    width: 80%; /* Centered content */
+    max-width: 1200px; /* Max width looks funky. */
 }
 
+/* This controls the images. Super important */
 .image-container img {
-    width: 50%;
+    width: 150%;
     height: auto;
     object-fit: cover;
+    border-radius: 0%; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.text-container {
-    padding: 20px;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+/* Offset box styling. May have to do separate ones for events and amenities */
+/* Also need to make the box square */
+.offset-box {
+    background-color: #ffffff; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    padding: 30px;
+    margin-left: -50px; /* Maaaaaybe need to split this and do a margin-right for amenities  */
+    border-radius: 0px;
+    text-align: left;
+    max-width: 450px; 
 }
 
-h2 {
+/* Styling for Headers inside White Boxes (Events & Amenities)*/
+.offset-box h2 {
+    font-size: 28px;
     color: #333;
-    font-size: 24px;
-    margin-bottom: 10px;
+    text-transform: uppercase; 
+    margin-bottom: 5px;
+    padding: 10px;
+
 }
 
-p {
+/* Paragraph Styling */
+.offset-box p {
+    font-size: 16px;
     color: #666;
     margin-bottom: 20px;
 }
 
-button {
+/* Button Styling */
+/* Need to add hover styling for events & amenities button */
+
+.offset-box button {
     padding: 10px 20px;
     background-color: #000;
     color: #fff;
@@ -54,6 +75,67 @@ button {
     font-weight: bold;
 }
 
-button:hover {
+.offset-box button:hover {
     background-color: #333;
 }
+
+#spa button {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#spa button:hover {
+    background-color: #333;
+}
+
+
+/* Spa Section Styling */
+#spa {
+    position: relative;
+    height: 80vh; /* I still need to adjust the height  */
+    background: url('Images/Spa.webp') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#spa .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#spa .text-box {
+    background-color: rgba(255, 255, 255, 0.8); /* Might have to change the white levels and test on different monitors */
+    padding: 30px;
+
+    border-radius: 0px;
+    text-align: center;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#spa h2 {
+    font-size: 32px;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#spa p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
