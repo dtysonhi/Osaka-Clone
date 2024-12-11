@@ -16,8 +16,7 @@ section {
 }
 
 
-
-/* Wrapper Styling for Content */
+/* Wrapper Styling for All the Content */
 .content-wrapper {
     display: flex;
     flex-direction: row;
@@ -74,6 +73,8 @@ section {
     padding: 10px 20px;
     background-color: #000;
     color: #fff;
+    height: 3.5vh;
+    width: 11.5vw;
     border: none;
     border-radius: 0px;
     cursor: pointer;
@@ -95,6 +96,8 @@ section {
 
 #spa button {
     padding: 10px 20px;
+    height: 3.5vh;
+    width: 11.5vw;
     background-color: #000;
     color: #fff;
     border: none;
@@ -108,33 +111,41 @@ section {
     background-color: #bc9b6a;
 }
 
-
+/* Spa Photo */
 #spa {
     position: relative;
-    height: 80vh; /* I still need to adjust the height  */
+    width: 100vw; /* Full width of the screen */
+    height: 100vh; /* Adjust height as needed */
     background: url('Images/Spa.webp') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+    overflow-x: hidden; /* Prevent horizontal scrollbars if needed */
 }
 
 #spa .overlay {
-    position: absolute;
+    position: center;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100%; /* Adjust to fit parent container */
+    height: auto; /* Adjust height dynamically */
+    display: flex;
+    object-fit: fill;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #spa .text-box {
-    background-color: rgba(255, 255, 255, 0.8); /* Might have to change the white levels and test on different monitors */
+    background-color: rgba(255, 255, 255, 0.952); /* Might have to change the white levels and test on different monitors */
+    font: 12px;
     padding: 30px;
-
     border-radius: 0px;
     text-align: center;
+    height: 25vh;
+    width: 37vw;
     max-width: 600px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -157,27 +168,43 @@ section {
 
 #events p {
     color:#121212;
-    padding: ;
+   
 }
 
 /* Amenities Section */
 
+#amenities .content-wrapper {
+    display: flex;
+    flex-direction: row-reverse; /* Reverse order: white box on the left */
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 1200px;
+    position: relative;
+}
+
 #amenities .offset-box {
-    margin-right: -50px; /* Adjust as needed for alignment */
     background-color: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    border-radius: 0px;
     text-align: left;
     max-width: 450px;
+
+    position: relative;
+    margin-right: -400px; /* Overlap effect */
+    z-index: 1; /* Ensures the white box stays on top */
 }
+
 
 #amenities .offset-box button {
     color: #ffffff;
     background-color: #000000;
     border-radius: 0%;
+    height: 3.5vh;
+    width: 14.5vw;
 }
 
 #amenities .offset-box button:hover {
     background-color: #bc9b6a; 
 }
+
