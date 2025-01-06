@@ -1,141 +1,198 @@
-body {
+/* ===========================
+   GLOBAL STYLING
+   =========================== */
+   body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 0; 
+    padding: 0;
     background-color: #f0e5d8; 
 }
 
+/* ===========================
+   GENERAL SECTION STYLING
+   =========================== */
 section {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 65px 0; 
+    flex-direction: column;
 }
 
-/* Wrapper Styling for Content */
+/* ===========================
+   FLEX LAYOUT WRAPPER
+   =========================== */
 .content-wrapper {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    width: 80%; /* Centered but may need a bit more adjustment */
-    max-width: 1200px; /* Max width looks funky. */
+    gap: 50px;
+    flex-wrap: wrap;
+    width: 80%;
+    max-width: 1200px;
 }
 
-/* This controls the images. Super important */
+/* ===========================
+   IMAGE CONTAINER
+   =========================== */
 .image-container img {
-    width: 150%;
+    width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 0%; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Offset box styling. May have to do separate ones for events and amenities */
-/* Also need to make the box square */
-.offset-box {
-    background-color: #ffffff; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    padding: 30px;
-    margin-left: -50px; /* Maaaaaybe need to split this and do a margin-right for amenities  */
-    border-radius: 0px;
-    text-align: left;
-    max-width: 450px; 
-}
-
-/* Styling for Headers inside White Boxes (Events & Amenities)*/
-.offset-box h2 {
-    font-size: 28px;
-    color: #333;
-    text-transform: uppercase; 
-    margin-bottom: 5px;
-    padding: 10px;
-
-}
-
-/* Paragraph Styling */
-.offset-box p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-/* Button Styling */
-/* Need to add hover styling for events & amenities button */
-
-.offset-box button {
-    padding: 10px 20px;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.offset-box button:hover {
-    background-color: #333;
-}
-
-#spa button {
-    padding: 10px 20px;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    border-radius: 0px;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-#spa button:hover {
-    background-color: #333;
-}
-
-
-/* Spa Section Styling */
+/* ===========================
+   SPA SECTION STYLING
+   =========================== */
 #spa {
+    background: url('Images/Spa.webp') no-repeat center center; 
     position: relative;
-    height: 80vh; /* I still need to adjust the height  */
-    background: url('Images/Spa.webp') no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#spa .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    background-size: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#spa .text-box {
-    background-color: rgba(255, 255, 255, 0.8); /* Might have to change the white levels and test on different monitors */
-    padding: 30px;
-
-    border-radius: 0px;
+.spa-text-box {
+    background-color: rgba(255, 255, 255, 0.941);  /* White with 85% opacity */ 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
+    padding: 40px;  
+    height: auto;
+    width: 75%;
+    border-radius: 0;
     text-align: center;
     max-width: 600px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    position: relative;
+    top: 0;
 }
 
-#spa h2 {
-    font-size: 32px;
-    color: #333;
+/* SPA Heading Styling */
+.spa-text-box h2 {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 900;  /* font-black */
+    line-height: 1;    /* leading-none */
+    font-family: 'Arial', sans-serif; /* font-headline */
+    margin: 0px;
+    text-wrap: balance; 
+    white-space: normal; 
+    transition: transform 1s ease, opacity 1s ease; 
+    transform: translateY(0);  
+    opacity: 1;   
+    
+    transition-delay: 100ms;
+}
+
+@media (min-width: 768px) {
+    .spa-text-box h2 {
+        font-size: 2.25rem; /* md:text-4xl */
+    }
+}
+
+/* SPA Paragraph Styling */
+.spa-text-box p {
+    display: block;
+    font-size: 18px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+/* ===========================
+   EVENTS SECTION STYLING
+   =========================== */
+#events {
+    padding: 128px 16px;  
+    margin: 0;
+}
+
+.events-text-box {
+    background-color: #ffffff; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
+    padding: 30px;
+    border-radius: 0;
+    text-align: left;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    top: -50px;
+}
+
+/* ===========================
+   AMENITIES SECTION STYLING
+   =========================== */
+#amenities {
+    padding: 0 16px 128px;  
+    margin: 0;
+}
+
+.amenities-text-box {
+    background-color: #ffffff; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
+    padding: 30px;
+    border-radius: 0;
+    text-align: left;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    top: -50px;
+}
+
+/* ===========================
+   BUTTON STYLING
+   =========================== */
+   button {
+    font-size: 1.125rem;  /* text-lg (18px) */
+    line-height: 1.75rem;
+    padding: 8px 24px;    /* py-2 px-6 */
+    margin: 8px 4px 0px 4px;      /* mt-2 mx-1 */
+    border: 0px;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 10;
+    background-color: #000;  /* Retained original black background */
+    color: #fff;             /* White text */
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#spa p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 20px;
+button:hover {
+    background-color: #bc9b6a;
+    color: #000;
 }
 
+
+/* ===========================
+   RESPONSIVE LAYOUT
+   =========================== */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .events-text-box, 
+    .amenities-text-box {
+        max-width: 90%;
+        padding: 20px;
+        top: 0;
+    }
+}
+
+@media (min-width: 640px) {
+    .spa-text-box{
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+}
