@@ -12,12 +12,16 @@
 /* ===========================
    GENERAL SECTION STYLING
    =========================== */
-section {
+   section {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100vh;
 }
+
 
 /* ===========================
    FLEX LAYOUT WRAPPER
@@ -47,30 +51,22 @@ section {
    =========================== */
 #spa {
     background: url('Images/Spa.webp') no-repeat center center; 
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background-size: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-size: cover;
 }
 
+
 .spa-text-box {
-    background-color: rgba(255, 255, 255, 0.941);  /* White with 85% opacity */ 
+    background-color: rgba(255, 255, 255, 0.941);  
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
     padding: 40px;  
     height: auto;
     width: 75%;
-    border-radius: 0;
-    text-align: center;
     max-width: 600px;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center; 
     justify-content: center;
-    position: relative;
-    top: 0;
+    align-items: center;
 }
 
 /* SPA Heading Styling */
@@ -86,20 +82,26 @@ section {
     transform: translateY(0);  
     text-transform: uppercase;
     opacity: 1;   
-    
+    text-wrap: balance;          /* text-balance */
+    word-break: normal;
     transition-delay: 100ms;
+    
 }
 
-@media (min-width: 768px) {
-    .spa-text-box h2 {
-        font-size: 2.25rem; /* md:text-4xl */
+
+
+ @media (min-width: 1024px) {     /* lg breakpoint */
+        .spa-text-box h2{
+            max-width: 36rem;        /* lg:max-w-xl (576px) */
+            padding: 2.5rem;         /* lg:p-10 (40px) */
+        }
     }
-}
 
 /* SPA Paragraph Styling */
 .spa-text-box p {
     display: block;
-    font-size: 18px;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
@@ -109,80 +111,134 @@ section {
 /* ===========================
    EVENTS SECTION
    =========================== */
-   .events-content-wrapper {
-    position: relative;
+
+/* ===========================
+   EVENTS SECTION STYLING
+   =========================== */
+   #events {
+    background-color: rgb(240, 229, 216);
+}
+
+/* New wrapper div for section padding and alignment */
+.events-wrapper {
     display: flex;
-    justify-content: flex-start;  /* Align items to the left */
+    justify-content: center;
     align-items: center;
-    width: 90%;  /* Full width */
-    margin: 0;  /* No margin */
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    padding-top: 2rem;   /* pt-8 */
+    padding-bottom: 2rem; /* pb-8 */
+}
+
+/* Medium screens (md) */
+@media (min-width: 768px) {
+    .events-wrapper {
+        padding-top: 4rem;  /* md:pt-16 (64px) */
+        padding-bottom: 4rem; /* md:pb-16 (64px) */
+    }
+}
+
+/* Large screens (lg) */
+@media (min-width: 1024px) {
+    .events-wrapper {
+        padding-top: 8rem;  /* lg:pt-32 (128px) */
+        padding-bottom: 8rem; /* lg:pb-32 (128px) */
+    }
+}
+
+/* Content inside the wrapper */
+.events-content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 50px;
-    padding: 128px 0;  /* Top and bottom padding, no left/right padding */
-}
-
-
-
-.events-image-container {
-    flex: 1;
-    max-width: 80%;  /* Limit image to half of the container */
-}
-
-.events-image-container img {
-    box-sizing: border-box;
-    display: block;
-    overflow: hidden;
-    width: initial;
-    height: initial;
-    background: none;
-    opacity: 1;
-    border: 0px;
-    margin: 0px;
-    padding: 56.25% 0px 0px;
+    width: 60%;
+    height: 100%;
+    max-width: 100%;
     position: relative;
+    flex-direction: column;          /* flex-col (default) */
+    justify-content: flex-start;     /* justify-start */
 }
+
 
 
 .events-text-box {
-    background: rgb(255, 255, 255);  /* White background */
-    background-position: left center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+   background: rgb(255, 255, 255) left center / cover no-repeat; 
+   top: 0px;
+    position: relative;
+    align-items: flex-start;
     padding: 64px;
-    max-width: 500px;
-    height: 50%;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;  /* Align content to the left */
-    justify-content: flex-start;  /* Align content to the top */
-    text-align: left;  /* Ensure text aligns left */
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
+    justify-content: flex-start;
+    text-align: left;
+    
+    z-index: 10;                  /* z-10 */
+    width: 100%;                  /* w-full */
 }
 
-.events-text-box h2 {
-    font-size: 1.5rem;  /* text-2xl */
-    font-weight: 900;  /* font-black */
-    line-height: 1;  /* leading-none */
-    font-family: 'Arial', sans-serif;  /* font-headline */
-    margin-bottom: 1.5rem;  /* mb-6 */
-    color: #000000;  
-    text-transform: uppercase;
-    transition: transform 1s ease, opacity 1s ease;  /* transition-[transform,opacity] */
-    transform: translateY(0);  /* transform */
-    opacity: 1;  /* opacity-100 */
-    transition-delay: 300ms;  /* delay-300 */
+@media (min-width: 1024px) {      /* lg breakpoint */
+    .events-text-box {
+        width: 42.857%;           /* lg:w-3/7 (3/7 of the container width) */
+        position: absolute;       /* lg:absolute */
+        top: 50%;                 /* lg:top-1/2 */
+        transform: translateY(-50%); /* lg:-translate-y-1/2 */
+        right: 0;                 /* lg:right-0 */
+    }
 }
+  
+
+.events-text-box h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.events-text-box p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.events-text-box button {
+    background-color: #000;
+    color: #fff;
+    font-size: 1rem;
+    padding: 12px 32px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.events-text-box button:hover {
+    background-color: #bc9b6a;
+    color: #000;
+}
+
 
 @media (min-width: 768px) {
     .events-text-box h2 {
         font-size: 2.25rem;  /* md:text-4xl */
     }
 }
+
+
+.events-image-container {
+    flex: 0 1 auto;
+    width: 50%;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.events-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
 
 
 
